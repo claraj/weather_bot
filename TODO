@@ -8,7 +8,7 @@ emoji snowflake in status message - chewed by tweepy?
 
 catch all requests to any url and respond with message?
 
-correctly use skip_files in app.yaml to ignore /out directory.
+correctly use skip_files in app.yaml to ignore /out directory.  and venv directory. 
 
 Tests
 

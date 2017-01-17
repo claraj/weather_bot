@@ -1,7 +1,5 @@
 cron:
-- description: daily temperature check and tweet
+- description: "daily temperature check and tweet"
   url: /go
   schedule: every day 09:00
-  retry_parameters:
-    job_retry_limit: 1
-    min_backoff_seconds: 180
+  timezone: America/Chicago

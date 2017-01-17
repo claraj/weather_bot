@@ -45,7 +45,7 @@ class WeatherBotHandler(webapp2.RequestHandler):
             # Our high temp is the coldest.
             tweet_text = '*** Today, Minneapolis-St. Paul has the coldest high temperature of any major US city, %.1f.' % lowest_high_temp
         else:
-            tweet_text =  'Minneapolis-St. Paul is not coldest. Today, it\'s %s with a forecast high of %.1f' % ( lowest_high_city, lowest_high_temp)
+            tweet_text =  'Minneapolis-St. Paul is not the coldest. Today, it\'s %s with a forecast high of %.1f' % ( lowest_high_city, lowest_high_temp)
 
 
         logging.info('About to tweet: ' + tweet_text)

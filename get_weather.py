@@ -78,7 +78,7 @@ def get_forecast_highs():
             lowest_city = entry
 
 
-    logging.info('All high temps: ' + str(todays_forecast_highs)
+    logging.info('All high temps: ' + str(todays_forecast_highs))
     logging.info('lowest forecast temp is %f in %s' % (lowest, lowest_city))
 
     return todays_forecast_highs
