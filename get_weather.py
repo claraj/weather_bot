@@ -75,7 +75,7 @@ def get_forecast_highs():
     for city in todays_forecast_highs.keys():
         if todays_forecast_highs[city] < lowest:
             lowest = todays_forecast_highs[city]
-            lowest_city = entry
+            lowest_city = city
 
 
     logging.info('All high temps: ' + str(todays_forecast_highs))

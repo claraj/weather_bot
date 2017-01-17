@@ -1,16 +1,15 @@
-why no writing to files on server? Replace with logging to files
-
-Get cron job working on central time zone. pytz include (is included in deployed version?)
-
-Where is cron job in app engine dashboard?
+why no writing to files on server? Log data to files on server 
 
 emoji snowflake in status message - chewed by tweepy?
 
 catch all requests to any url and respond with message?
 
-correctly use skip_files in app.yaml to ignore /out directory.  and venv directory. 
+correctly use skip_files in app.yaml to ignore /out directory.  and venv directory.
 
 Tests
+
+
+
 
 notes: needs billing enabled for tweepy
 Tweepy also doesn't work in devserver
