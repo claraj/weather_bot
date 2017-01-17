@@ -6,7 +6,7 @@ import logging
 import json
 import os
 
-sleepdelay = 70
+sleepdelay = 65
 key = keys['WEATHER_UNDERGROUND']
 
 city_list_file = os.path.join('data', 'city_data.txt')
@@ -24,7 +24,6 @@ def get_weather(url, city, state):
 
 def get_high(response):
     ''' get the high temp from the json'''
-    ### TODO key error !!
     try:
         high = response["forecast"]["simpleforecast"]["forecastday"][0]['high']['celsius']
         return float(high)
@@ -65,25 +64,37 @@ def get_forecast_highs():
         else :
             logging.error('error processing response for ' + entry)
 
-    # Get smallest val from todays_forecast_highs
-
-    lowest = 100 # Working in Celsius. Unlikely to be any temps above the boiling point of water (hopefully)
-    lowest_city = ''
-
     logging.debug(todays_forecast_highs)
 
-    for city in todays_forecast_highs.keys():
-        if todays_forecast_highs[city] < lowest:
-            lowest = todays_forecast_highs[city]
-            lowest_city = city
-
+    # Not used here, but just for info
+    lowest_city, lowest_high = lowest_high_temp(todays_forecast_highs)
 
     logging.info('All high temps: ' + str(todays_forecast_highs))
-    logging.info('lowest forecast temp is %f in %s' % (lowest, lowest_city))
+    logging.info('lowest forecast temp is %f celsius in %s' % (lowest_high, lowest_city))
 
     return todays_forecast_highs
 
 
+def lowest_high_temp(temps):
+    ''' Calculate the smallest temp and corresponding city in a dictionary of { city : temp } pairs '''
+
+    lowest_high = 1000 # Working in Celsius. Unlikely to be any temps above 1000C .... hopefully!
+    lowest_city = ''
+
+    for city in temps.keys():
+        if temps[city] < lowest_high:
+            lowest_high = temps[city]
+            lowest_city = city
+
+    if lowest_high == 1000:
+        logging.error('The highest low temp is 1000C')
+
+    return lowest_city, lowest_high
+
+
+
+
+#Convenience function for testing this code at the command prompt
 def main():
     res = get_forecast_highs()
 

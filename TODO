@@ -1,17 +1,29 @@
-why no writing to files on server? Log data to files on server 
+Not possible to create/write files on server with standard python method. Log all temp data to file on server?
 
 emoji snowflake in status message - chewed by tweepy?
 
-catch all requests to any url and respond with message?
-
 correctly use skip_files in app.yaml to ignore /out directory.  and venv directory.
+
+(the lib directory must be uploaded to GAE, but needs not be in github. )
+
+Tweepy will not post duplicate Tweets. What to do if the same city and same temp is the lowest two days in a row?
+
+
+(create requirements: pip freeze > requirements.txt )
+
+(Install from requirements)
+
+pip install -r requirements.txt -t lib/
 
 Tests
 
 
+admin only route to tweet
 
 
-notes: needs billing enabled for tweepy
+
+notes: needs billing enabled for tweepy, for SSL support
 Tweepy also doesn't work in devserver
 
 Task queue HTTP method defaults to POST
+cron job defaults to GET

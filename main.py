@@ -16,9 +16,7 @@ class QueueRequest(webapp2.RequestHandler):
         )
 
         logging.info('Weather forecast requests task enqueued')
-
         self.response.write('Weather forecast task enqueued.')
-
 
 
 class WeatherBotHandler(webapp2.RequestHandler):
@@ -28,24 +26,15 @@ class WeatherBotHandler(webapp2.RequestHandler):
         high_temps = get_weather.get_forecast_highs()
 
         # What's the lowest high temperature?
+        lowest_high_city, lowest_high_temp = get_weather.lowest_high_temp(high_temps)
 
-        lowest_high_temp = 1000
-        lowest_high_city = ''
-        for city in high_temps:
-            if high_temps[city] < lowest_high_temp:
-                lowest_high_temp = high_temps[city]
-                lowest_high_city = city
-
-        # Is it Minneapolis?
-        tweet_text = ''
-
-        snowflake = '\u2744' * 2
+        # Is it Minneapolis or St. Paul? (St. Paul is not in the city list, but keep this condition in case we put it back)
 
         if 'Minneapolis' in lowest_high_city or 'St. Paul' in lowest_high_city:
             # Our high temp is the coldest.
-            tweet_text = '*** Today, Minneapolis-St. Paul has the coldest high temperature of any major US city, %.1f.' % lowest_high_temp
+            tweet_text = '*** Today, Minneapolis-St. Paul has the coldest high temperature of any major US city, %.1fC.' % lowest_high_temp
         else:
-            tweet_text =  'Minneapolis-St. Paul is not the coldest. Today, it\'s %s with a forecast high of %.1f' % ( lowest_high_city, lowest_high_temp)
+            tweet_text =  'Minneapolis-St. Paul is not the coldest. Today, it\'s %s with a forecast high of %.1fC' % ( lowest_high_city, lowest_high_temp)
 
 
         logging.info('About to tweet: ' + tweet_text)
@@ -54,12 +43,11 @@ class WeatherBotHandler(webapp2.RequestHandler):
 
             auth = tweepy.OAuthHandler(keys['TWITTER_CONSUMER_KEY'], keys['TWITTER_CONSUMER_SECRET'] )
             auth.set_access_token(keys['TWITTER_ACCESS_TOKEN'], keys['TWITTER_ACCESS_TOKEN_SECRET'] )
-
             api = tweepy.API(auth)
 
             api.update_status(tweet_text)
 
-            logging.info('tweet success')
+            logging.info('tweepy has tweeted successfully')
 
         except Exception as e:
             # log error
@@ -67,8 +55,8 @@ class WeatherBotHandler(webapp2.RequestHandler):
             raise e
 
 
-        # self.response.set_status(201)
-        self.response.write('Just attempted to tweet %s ' % tweet_text)
+        self.response.set_status(201)   # Success, no content needs to be sent.
+        #self.response.write('Just attempted to tweet %s ' % tweet_text)
 
 
 
