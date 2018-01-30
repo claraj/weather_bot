@@ -4,7 +4,7 @@ Check the forecast high temp for 80 major US cities. Which one has the lowest hi
 
 A Twitter Bot running on Google App Engine, and tweeting daily here: https://twitter.com/mpls_most_cold
 
-###Installation
+### Installation
 
 Create a Google account. Create a project. Download and install Python Google App Engine SDK, as directed here: https://cloud.google.com/appengine/docs/python/quickstart
 

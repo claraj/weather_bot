@@ -30,9 +30,13 @@ class WeatherBotHandler(webapp2.RequestHandler):
 
         # Is it Minneapolis or St. Paul? (St. Paul is not in the city list, but keep this condition in case we put it back)
 
-        if 'Minneapolis' in lowest_high_city or 'St. Paul' in lowest_high_city:
+        if lowest_high_temp == 1000 or not lowest_high_city:
+            logging.error('could not identify city with lowest hight.')
+
+        elif 'Minneapolis' in lowest_high_city or 'St. Paul' in lowest_high_city:
             # Our high temp is the coldest.
             tweet_text = '*** Today, Minneapolis-St. Paul has the coldest high temperature of any major US city, %.1fC.' % lowest_high_temp
+
         else:
             tweet_text =  'Minneapolis-St. Paul is not the coldest. Today, it\'s %s with a forecast high of %.1fC' % ( lowest_high_city, lowest_high_temp)
 
