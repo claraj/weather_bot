@@ -1,6 +1,6 @@
 ## Weatherbot
 
-Check the forecast high temp for 80 major US cities. Which one has the lowest high temperature, and is it Minneapolis-St. Paul?
+Check the forecast high temp for 60 major US cities. Which one has the lowest high temperature for the day, and is it Minneapolis-St. Paul?
 
 A Twitter Bot running on Google App Engine, and tweeting daily here: https://twitter.com/mpls_most_cold
 
@@ -34,13 +34,14 @@ Install the dependencies with
 pip install -r requirements.txt -t lib/
 ```
 
-And then deploy to your GAE project
+And then deploy to your GAE project, deploy the app, queue and cron job yaml configuration.
 
 ```
 gcloud app deploy
+gcloud app deploy cron.yaml queue.yaml
 ```
 
-It should tweet at about 9.10am every morning, US Central Time.
+It should tweet at about 9.15am every morning, US Central Time.
 
 ### Notes
 
