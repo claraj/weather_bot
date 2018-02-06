@@ -7,14 +7,12 @@ Phoenix; AZ
 San Antonio; TX
 San Diego; CA
 Dallas; TX
-Austin; TX
 Jacksonville; FL
 Indianapolis; IN
 San Francisco; CA
 Columbus; OH
 Charlotte; NC
 Detroit; MI
-El Paso; TX
 Memphis; TN
 Boston; MA
 Seattle; WA
@@ -28,26 +26,20 @@ Milwaukee; WI
 Las Vegas; NV
 Albuquerque; NM
 Tucson; AZ
-Fresno; CA
 Sacramento; CA
-Long Beach; CA
 Kansas City ; MO
 Virginia Beach; VA
 Atlanta; GA
 Colorado Springs; CO
 Raleigh; NC
 Omaha; NE
-Miami; FL
 Tulsa; OK
 Minneapolis; MN
 Cleveland; OH
 Wichita; KS
 New Orleans; LA
 Bakersfield; CA
-Tampa; FL
-Honolulu; HI
 St. Louis; MO
-Corpus Christi; TX
 Pittsburgh; PA
 Lexington; KY
 Anchorage; AK
@@ -56,22 +48,13 @@ Cincinnati; OH
 Toledo; OH
 Newark; NJ
 Greensboro; NC
-Henderson; NV
 Lincoln; NE
 Buffalo; NY
 Fort Wayne; IN
 Jersey City; NJ
-Orlando; FL
-St. Petersburg; FL
 Norfolk; VA
-Laredo; TX
 Madison; WI
-Lubbock; TX
 Winston-Salem; NC
-Garland; TX
-Reno; NV
 Baton Rouge; LA
 Chesapeake; VA
-San Bernardino; CA
 Boise; ID
-Birmingham; AL

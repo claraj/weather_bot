@@ -9,6 +9,7 @@ handlers:
 
 - url: /go
   script: main.app
+  login: admin
 
 
 - url: /.*
@@ -29,3 +30,4 @@ skip_files:
 - ^(.*/)?.*/RCS/.*$
 - ^(.*/)?\..*$
 - ^out/.*$
+- old/
